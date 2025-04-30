@@ -69,8 +69,8 @@ public class ControladorInventarioAula {
 				importación(NOMBRE_ARCHIVO);
 				break;
 			case 6: // Borrado
-				// borrado()
-				// break;
+//				borrado();
+//				break;
 			case 0:
 				finalizar(); // Finalizar programa
 				salir = true;
@@ -223,12 +223,18 @@ public class ControladorInventarioAula {
 	/**
 	 * Borra todos los puestos del aula.
 	 */
-	public void borrado() {
-		VistaReseteo reset = new VistaReseteo(NOMBRE_ARCHIVO);
-
-		
-		VistaGeneral.preguntaSeguir();
-	}
+//	public void borrado() {
+//		VistaReseteo reset = new VistaReseteo(NOMBRE_ARCHIVO);
+//		InventarioAula inventarioB;
+//		try {
+//			inventarioB.borrar(NOMBRE_ARCHIVO);
+//		} catch (InventarioException e) {
+//			reset.mostrarError("Error en el borrado");
+//		}
+//		
+//		
+//		VistaGeneral.pedirConfirmación("¿Está seguro de que desea borrar todo?");
+//	}
 
 	/**
 	 * Muestra un mensaje temporal, de relleno, para opciones pendientes de
