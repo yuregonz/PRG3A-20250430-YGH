@@ -46,6 +46,7 @@ public class InventarioAula {
 	 * </div>
 	 */
 	private Map<String, PuestoUsuario> listaPuestos;
+	
 
 	static {
 		FORMATO_EXPORTACIÓN_CSV = String.format("%%s%1$s%%s%1$s%%s%1$s%%s", SEPARADOR_CSV);
@@ -193,6 +194,32 @@ public class InventarioAula {
 		ordenador = normalizarTexto(datosPuesto.ordenador(), "Identificación del equipo informático requerida");
 		listaPuestos.put(códigoPuesto, new PuestoUsuario(ordenador, nombre, apellidos));
 	}
+	
+	/**
+	 * Elimina el puesto que el usuario indique.
+	 * 
+	 * @param códigoPuesto puesto que se va a eliminar.
+	 * @throws InventarioException en el caso de que no se introduzca un código correcto.
+	 */
+	public void borrar(String códigoPuesto) throws InventarioException {
+		String mensaje;
+
+		códigoPuesto = normalizarTexto(códigoPuesto, "Código de puesto requerido");
+		códigoPuesto = códigoPuesto.toUpperCase(Locale.of("es", "ES"));
+
+		if (!códigoPuesto.startsWith(prefijoAula)) {
+			mensaje = String.format("Código de puesto «%s» no corresponde a la relación «%s»", códigoPuesto,
+					prefijoAula);
+			throw new InventarioException(mensaje);
+		}
+
+		if (!listaPuestos.containsKey(códigoPuesto)) {
+			mensaje = String.format("Código de puesto «%s» no existente", códigoPuesto);
+			throw new InventarioException(mensaje);
+		}
+
+		listaPuestos.remove(códigoPuesto);
+	}
 
 	/**
 	 * Genera un listado de textos con una línea por cada puesto presente en la
@@ -302,7 +329,7 @@ public class InventarioAula {
 			throw new InventarioException(mensaje);
 		}
 
-		texto = texto.trim();
+		texto = texto.trim(); // recordatorio: quita espacios innecesarios
 		if (texto.length() == 0) {
 			throw new InventarioException(mensaje);
 		}
