@@ -1,0 +1,66 @@
+==================
+Inventario aula 25
+==================
+  1) Alta
+  2) Baja
+  3) Listado
+  4) Exportación
+  5) Importación
+  6) Borrado
+  0) SALIR
+Introduzca la opción elegida: 5
+ 25 equipos importados
+  1: IC08 – ED09012096P388 (Othmane Abed Khattabi)
+  2: IC09 – ED09012096P389 (Ian Gallo López)
+  3: IC06 – ED09012096P382 (Daniel Martínez Arce)
+  4: IC07 – ED09012096P387 (Amina Abed Khattabi)
+  5: IC11 – ED09012096P391 (Ricardo Daniel Pinheiro Carvalho)
+  6: IC12 – ED09012096P392 (Alejandro Segovia Solís)
+  7: IC10 – ED09012096P390 (David Soto García)
+  8: IC15 – ED09012096P395 (Marco Santamaría Manso)
+  9: IC16 – ED09012096P396 (Ivana Marcos Oca)
+  10: IC13 – ED09012096P393 (Héctor Reoyo Saiz)
+	¿Desea seguir? (s/N): 
+
+Pulse «Intro» para continuar…
+
+==================
+Inventario aula 25
+==================
+  1) Alta
+  2) Baja
+  3) Listado
+  4) Exportación
+  5) Importación
+  6) Borrado
+  0) SALIR
+Introduzca la opción elegida: 3
+  1: IC08 – ED09012096P388 (Othmane Abed Khattabi)
+  2: IC09 – ED09012096P389 (Ian Gallo López)
+  3: IC06 – ED09012096P382 (Daniel Martínez Arce)
+  4: IC07 – ED09012096P387 (Amina Abed Khattabi)
+  5: IC11 – ED09012096P391 (Ricardo Daniel Pinheiro Carvalho)
+  6: IC12 – ED09012096P392 (Alejandro Segovia Solís)
+  7: IC10 – ED09012096P390 (David Soto García)
+  8: IC15 – ED09012096P395 (Marco Santamaría Manso)
+  9: IC16 – ED09012096P396 (Ivana Marcos Oca)
+  10: IC13 – ED09012096P393 (Héctor Reoyo Saiz)
+	¿Desea seguir? (s/N): s
+  11: IC14 – ED09012096P394 (Carlos David Salazar León)
+  12: IC19 – ED09012096P399 (José Ortega García-Rámila)
+  13: IC17 – ED09012096P397 (David Lara Manrique)
+  14: IC18 – ED09012096P398 (Junior Jair Mendoza Ríos)
+  15: IC00 – ED09012096P700 (Profes CESInfo)
+  16: IC22 – ED09012096P402 (Ignacio Maestro Heredia)
+  17: IC01 – ED09012096P380 (Darío Martín de la Fuente)
+  18: IC23 – ED09012096P403 (Alejandro Navazo Nova)
+  19: IC20 – ED09012096P400 (Donny Xavier Molina Gallo)
+  20: IC21 – ED09012096P401 (Adrián Román Porras)
+	¿Desea seguir? (s/N): s
+  21: IC04 – ED09012096P382 (Sergio Alonso López)
+  22: IC05 – ED09012096P382 (Eder Cabana Martín)
+  23: IC02 – ED09012096P381 (Yurena González Herrero)
+  24: IC24 – ED09012096P404 (Jorge Lázaro Poyo)
+  25: IC03 – ED09012096P382 (Elena Guerrero Arnaiz)
+
+Pulse «Intro» para continuar…

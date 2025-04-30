@@ -1,0 +1,26 @@
+IC
+IC00##ED09012096P700##Profes##CESInfo
+IC01##ED09012096P380##Darío##Martín de la Fuente
+IC02##ED09012096P381##Yurena##González Herrero
+IC03##ED09012096P382##Elena##Guerrero Arnaiz
+IC04##ED09012096P382##Sergio##Alonso López
+IC05##ED09012096P382##Eder##Cabana Martín
+IC06##ED09012096P382##Daniel##Martínez Arce
+IC07##ED09012096P387##Amina##Abed Khattabi
+IC08##ED09012096P388##Othmane##Abed Khattabi
+IC09##ED09012096P389##Ian##Gallo López
+IC10##ED09012096P390##David##Soto García
+IC11##ED09012096P391##Ricardo Daniel##Pinheiro Carvalho
+IC12##ED09012096P392##Alejandro##Segovia Solís
+IC13##ED09012096P393##Héctor##Reoyo Saiz
+IC14##ED09012096P394##Carlos David##Salazar León
+IC15##ED09012096P395##Marco##Santamaría Manso
+IC16##ED09012096P396##Ivana##Marcos Oca
+IC17##ED09012096P397##David##Lara Manrique
+IC18##ED09012096P398##Junior Jair##Mendoza Ríos
+IC19##ED09012096P399##José##Ortega García-Rámila
+IC20##ED09012096P400##Donny Xavier##Molina Gallo
+IC21##ED09012096P401##Adrián##Román Porras
+IC22##ED09012096P402##Ignacio##Maestro Heredia
+IC23##ED09012096P403##Alejandro##Navazo Nova
+IC24##ED09012096P404##Jorge##Lázaro Poyo
