@@ -68,6 +68,9 @@ public class ControladorInventarioAula {
 			case 5: // Importación
 				importación(NOMBRE_ARCHIVO);
 				break;
+			case 6: // Borrado
+				// borrado()
+				// break;
 			case 0:
 				finalizar(); // Finalizar programa
 				salir = true;
@@ -215,6 +218,16 @@ public class ControladorInventarioAula {
 			mensaje = String.format("Error de importación: %s", ex.getLocalizedMessage());
 			VistaGeneral.mostrarAviso(mensaje);
 		}
+	}
+	
+	/**
+	 * Borra todos los puestos del aula.
+	 */
+	public void borrado() {
+		VistaReseteo reset = new VistaReseteo(NOMBRE_ARCHIVO);
+
+		
+		VistaGeneral.preguntaSeguir();
 	}
 
 	/**
