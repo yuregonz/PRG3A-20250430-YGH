@@ -57,7 +57,7 @@ public class ControladorInventarioAula {
 				alta();
 				break;
 			case 2: // Baja
-				stub(opción, n);
+				baja();
 				break;
 			case 3: // Listado
 				listado();
@@ -109,6 +109,31 @@ public class ControladorInventarioAula {
 	}
 
 	/**
+	 * Borra del inventario un equipo con los datos facilitados por el usuario.
+	 */
+	private void baja() {
+		VistaDiálogoBajaPuesto dlg;
+		dlg = new VistaDiálogoBajaPuesto("Baja ICXX", this);
+
+		dlg.bajaPuestoUsuario();
+	}
+
+	/**
+	 * Incorpora un nuevo equipo al inventario del aula. Actúa de intermediario
+	 * forzoso entre la vista y el almacén; evitando así compartir el almacen con la
+	 * vista impidiendo potenciales manipulaciones descontroladas.
+	 * 
+	 * @see InventarioAula#añadir(String, PuestoUsuario)
+	 * 
+	 * @param código el identificador del puesto
+	 * @param nuevo  los datos del equipo
+	 * @throws InventarioException si alguna incidencia impide realizar el alta
+	 */
+	public void procesarBaja(String código) throws InventarioException {
+		aula25.borrar(código);
+	}
+
+	/**
 	 * Genera una pantalla con el listado completo de equipos del aula.
 	 */
 	private void listado() {
@@ -131,7 +156,17 @@ public class ControladorInventarioAula {
 	 * @param rutaArchivo el nombre o ruta al archivo
 	 */
 	private void exportación(String rutaArchivo) {
-		VistaGeneral.mostrarAviso("PENDIENTE: programador ocupado…");
+		AccesoArchivo archivo;
+		List<String> contenido;
+		boolean exportadoCorrecto;
+
+		archivo = new AccesoArchivo(rutaArchivo);
+		contenido = aula25.generarListadoCSV();
+		exportadoCorrecto = archivo.escribir(contenido);
+		if (!exportadoCorrecto) {
+			VistaGeneral.mostrarError("Error en la exportación");
+		}
+
 	}
 
 	/**
