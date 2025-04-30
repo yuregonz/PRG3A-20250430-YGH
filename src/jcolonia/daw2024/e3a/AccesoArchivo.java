@@ -3,9 +3,11 @@ package jcolonia.daw2024.e3a;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -37,8 +39,21 @@ public class AccesoArchivo {
 	 * @return si se ha completado la operación
 	 */
 	public boolean escribir(List<String> listaTextos) {
-		VistaGeneral.mostrarAviso("PENDIENTE: programador ocupado…");
-		return false;
+		boolean escritoCorrecto = true;
+
+		// Usando try-with-resources para gestionar el PrintWriter y asegurar el cierre
+		// del recurso
+		try (PrintWriter writer = new PrintWriter(new FileWriter(new File(rutaArchivo)))) {
+			for (String linea : listaTextos) {
+				writer.println(linea); // Escribir una nueva línea
+			}
+		} catch (IOException e) {
+			System.err.println("Error al escribir en el archivo: " + e.getMessage());
+			escritoCorrecto = false;
+		}
+
+		// Devolver el número de líneas efectivamente escritas
+		return escritoCorrecto;
 	}
 
 	/**
@@ -50,35 +65,27 @@ public class AccesoArchivo {
 	 *         acceso o si el archivo está vacío
 	 */
 	public List<String> leer() {
-		File refArchivo;
-		List<String> listaTextos;
-		String línea;
+		List<String> lineas = new ArrayList<>();
+		boolean continuarLeyendo = true; // Flag para controlar el bucle de lectura
 
-		boolean finArchivo = false;
-
-		refArchivo = new File(rutaArchivo);
-		try (FileReader fr = new FileReader(refArchivo, Charset.forName("UTF-8"));
-				BufferedReader in = new BufferedReader(fr);) {
-			listaTextos = new ArrayList<String>();
-
-			do {
-				línea = in.readLine();
-
-				if (línea != null) {
-					listaTextos.add(línea);
+		// Usando try-with-resources para gestionar el BufferedReader y asegurar el
+		// cierre del recurso
+		try (BufferedReader reader = new BufferedReader(new FileReader(new File(rutaArchivo)))) {
+			String linea;
+			// Bucle while con flag para leer línea por línea
+			while (continuarLeyendo) {
+				linea = reader.readLine();
+				if (linea == null) {
+					continuarLeyendo = false; // Si no hay más líneas, salimos del bucle
 				} else {
-					finArchivo = true;
+					lineas.add(linea); // Agregar la línea a la lista
 				}
-			} while (!finArchivo);
-
-			if (listaTextos.size() == 0) {
-				System.err.printf("Error de importación: archivo «%s» vacío%n", rutaArchivo);
-				listaTextos = null;
 			}
-		} catch (IOException ex) {
-			System.err.printf("Error de importación: %s%n", ex.getLocalizedMessage());
-			listaTextos = null;
+		} catch (IOException e) {
+			System.out.println("Error al leer el archivo: " + e.getMessage());
 		}
-		return listaTextos;
+
+		// Devolver una lista inmutable
+		return Collections.unmodifiableList(lineas); // Lista inmutable
 	}
 }
