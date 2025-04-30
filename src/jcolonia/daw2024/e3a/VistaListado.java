@@ -37,6 +37,18 @@ public class VistaListado extends VistaGeneral {
 	 * @see VistaGeneral#pedirConfirmación(String)
 	 */
 	public void mostrar(List<String> listaTextos) {
-		mostrarAviso("PENDIENTE: programador ocupado…");
+		int contadorImpresos = 0;
+
+		for (String texto : listaTextos) {
+			contadorImpresos++;
+			out.printf(FORMATO_LISTADO, contadorImpresos, texto);
+
+			if (contadorImpresos % TAMAÑO_PÁGINA == 0) {
+				boolean confirmación = pedirConfirmación("¿Quieres pasar la página?");
+				if (!confirmación) {
+					break;
+				}
+			}
+		}
 	}
 }
