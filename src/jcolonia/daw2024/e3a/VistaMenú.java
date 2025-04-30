@@ -24,10 +24,15 @@ public class VistaMenú extends VistaGeneral {
 	 * @param nombre   el nombre o título del menú
 	 * @param opciones la lista original de opciones a copiar
 	 */
+	
+	/** Marca para incluir o no la opción de salida. */
+	private boolean conSalir;
+	
 	public VistaMenú(String nombre, String[] opciones) {
 		super(nombre);
 
 		textoOpciones = Arrays.copyOf(opciones, opciones.length);
+		conSalir = true;
 	}
 
 	/**
@@ -35,7 +40,16 @@ public class VistaMenú extends VistaGeneral {
 	 * disponibles. Incluye la opción «0» para salir o finalizar.
 	 */
 	public void mostrarMenú() {
-		mostrarAviso("PENDIENTE: programador ocupado…");
+		int n = 1;
+
+		for (String str : textoOpciones) {
+			System.out.printf(FORMATO_OPCIONES_MENÚ, n, str);
+			n++;
+		}
+
+		if (conSalir) {
+			System.out.printf(FORMATO_OPCIONES_MENÚ, 0, "Salir");
+		}
 	}
 
 	/**
@@ -45,7 +59,32 @@ public class VistaMenú extends VistaGeneral {
 	 * @return el número de la opción elegida [1..n]
 	 */
 	public int pedirOpción() {
-		mostrarAviso("PENDIENTE: programador ocupado…");
-		return 0;
+		String s;
+		int opciónElegida = 0;
+
+		boolean salir = false;
+
+		do {
+			try {
+				System.out.print("Introduzca la opción elegida: ");
+				s = getScEntrada().nextLine();
+				opciónElegida = Integer.parseInt(s);
+
+				if (opciónElegida > textoOpciones.length || opciónElegida < 0) {
+					System.out.println("Dato introducido fuera de rango");
+
+				} else {
+					salir = true;
+					System.out.printf("--> %d%n", opciónElegida);
+					System.out.println("Dato introducido correctamente.");
+				}
+			} catch (NumberFormatException e) {
+				System.out.printf(
+						"*** ¡El sistema solo admite números enteros! Elija un número comprendido entre 0 y %d%n",
+						textoOpciones.length);
+			}
+		} while (!salir);
+
+		return opciónElegida;
 	}
 }
